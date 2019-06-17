@@ -85,6 +85,7 @@ function [tau,wbase] = rne_dh(robot, a1, a2, a3, a4, a5)
         tau = zeros(np,n, 'sym');
     else
         tau = zeros(np,n);
+        tau = 0*CasadiVariable.Matrix([np,n]);
     end
 
     for p=1:np

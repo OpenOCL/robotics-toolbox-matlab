@@ -169,9 +169,16 @@ classdef SO3 < RTBPose
             else
                 RR = zeros(3,3,length(obj));
             end
-            for i=1:length(obj)
-                RR(:,:,i) = obj(i).data(1:3,1:3);
+            
+            if length(obj) == 1
+              RR = obj.data(1:3,1:3);
+            else
+              for i=1:length(obj)
+                  RR(:,:,i) = obj(i).data(1:3,1:3);
+              end
             end
+            
+
         end
 
         function TT = T(obj)
